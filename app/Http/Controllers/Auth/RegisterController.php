@@ -175,7 +175,7 @@ return redirect()->intended('login/business');
     {
       $this->validator($request->all())->validate();
       $user_id = mt_rand(13, rand(100, 99999990));
-     $exist =DB::table('users')->where('user_id',$user_id)->first();
+     $exist =DB::table('affiliate')->where('user_id',$user_id)->first();
       // $user=User::find($user_id);
       // if(){
 
