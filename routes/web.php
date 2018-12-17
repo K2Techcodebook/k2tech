@@ -25,21 +25,21 @@ Route::get('/clear-cache', function() {
     return $exitCode;
     // return what you want
 });
-
+//GET ROUTE
   Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
     Route::get('/login/business', 'Auth\LoginController@showBusinessLoginForm');
      Route::get('/login/affiliate', 'Auth\LoginController@showAffiliateLoginForm');
     Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
     Route::get('/register/business', 'Auth\RegisterController@showBusinessRegisterForm');
     Route::get('/register/affiliate', 'Auth\RegisterController@showAffiliateRegisterForm');
-
+//POST ROUTE
     Route::post('/login/admin', 'Auth\LoginController@adminLogin');
     Route::post('/login/business', 'Auth\LoginController@businessLogin');
     Route::post('/login/affiliate', 'Auth\LoginController@affiliateLogin');
     Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
     Route::post('/register/affiliate', 'Auth\RegisterController@createAffiliate');
     Route::post('/register/business', 'Auth\RegisterController@createBusiness');
-
+//DASBOARD AFTER LOGIN
     Route::view('/home', 'home')->middleware('auth');
     Route::view('/admin', 'admin');
     Route::view('/affiliate', 'affiliate');
