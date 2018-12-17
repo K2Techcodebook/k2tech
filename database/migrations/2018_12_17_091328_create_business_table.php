@@ -15,11 +15,12 @@ class CreateBusinessTable extends Migration
     {
         Schema::create('business', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('user_id')->unique();
             $table->string('name');
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->boolean('is_super')->default(false);
+            $table->boolean('is_busiz')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

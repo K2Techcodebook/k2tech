@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\DB;
+use App\user_profiles;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -50,6 +51,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+              'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
@@ -63,10 +65,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      $user_id = mt_rand(13, rand(100, 99999990));
+     $exist =DB::table('users')->where('user_id',$user_id)->first();
+      // $user=User::find($user_id);
+      // if(){
+
+      // }
+     if(!$exist){
         return User::create([
+           'user_id' => $user_id,
             'name' => $data['name'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        return user_profiles::create(array(
+                 'user_id' => $user_id,
+                 'email' => $data['email'],
+                  'phone_number' => $data['phone'],
+                  'full_name' => 0,
+                  'address' => 0,
+                  'gender' =>0,
+                  'occupation' => 0,
+            ));
+
+}
+else{
+//  create(array $data);
+return false;
+  }
+
     }
 }
