@@ -17,14 +17,30 @@
     <!-- Bootstrap core CSS -->
    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2"> -->
    <!-- Scripts -->
-    <script src="{{ asset('home/js/all.js') }}" defer></script>
-
+ 
+  <!--  <script src="{{ asset('js/all.js') }}" defer></script> -->
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+<!--     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">-->
 
     <!-- Styles -->
-    <link href="{{ asset('home/css/all.css') }}" rel="stylesheet">
+  <!--  <link href="{{ asset('css/all.css') }}" rel="stylesheet"> -->
+   <link href="{{URL::asset('js/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+        <!-- REVOLUTION SLIDER MAIN STYLESHEET -->
+        <link rel="stylesheet" type="text/css" href="{{URL::asset('css/revolution/settings.css')}}">
+
+        <!-- REVOLUTION SLIDER LAYERS AND NAVIGATION STYLES -->
+        <link rel="stylesheet" type="text/css" href="{{URL::asset('css/revolution/layers.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{URL::asset('css/revolution/navigation.css')}}">
+
+        <!-- CUSTOM STYLES -->
+        <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
+
+        <!-- THEME SKINS -->
+        <link id="skin" href="{{URL::asset('css/theme-colors/orange.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('js/style-switcher/css/style-switcher.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('css/line-icons/line-icons.css')}}" rel="stylesheet">
 
   </head>
     <body>
