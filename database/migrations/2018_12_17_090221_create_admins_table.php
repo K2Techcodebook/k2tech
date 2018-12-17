@@ -20,7 +20,8 @@ class CreateAdminsTable extends Migration
               $table->string('username')->unique();
               $table->string('email')->unique();
               $table->string('password');
-              $table->boolean('is_superadmin')->default(false);
+              $table->string('is_superadmin')->default('Sadmin');
+                $table->string('ip_address');
               $table->rememberToken();
               $table->timestamps();
         });

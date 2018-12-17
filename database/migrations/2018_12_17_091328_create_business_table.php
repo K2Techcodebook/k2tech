@@ -20,7 +20,8 @@ class CreateBusinessTable extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->boolean('is_busiz')->default(false);
+            $table->string('is_busiz')->default('business');
+              $table->string('ip_address');
             $table->rememberToken();
             $table->timestamps();
         });

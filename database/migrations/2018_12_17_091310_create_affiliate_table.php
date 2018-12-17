@@ -20,7 +20,8 @@ class CreateAffiliateTable extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->boolean('is_affi')->default(false);
+             $table->string('is_affi')->default('affiliate');
+            $table->string('ip_address');
             $table->rememberToken();
             $table->timestamps();
         });
