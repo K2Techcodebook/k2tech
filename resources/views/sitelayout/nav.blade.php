@@ -101,7 +101,7 @@
                         <h4>Welcome to Our Website</h4>
                         <p> Do you know that you can follow the progress of your project on our website?
                           Yes all you have to do is Register and login to your dashboard where everything will be displayed. You can verify. Make Changes .Make payment. Request for a new project  and more all within your dashbaord.</p>
-                        <a class="btn-e btn-gray"  href="{{ route('register') }}">{{ __('Register') }}</a> or  <a class="btn-e btn-gray" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="btn-e btn-gray"   href="#"  data-toggle="modal" data-target="#createTopic_">{{ __('Register') }}</a> or  <a class="btn-e btn-gray" href="#" data-toggle="modal" data-target="#create_">{{ __('Login') }}</a>
                     </div>
                 </div>
             </div>

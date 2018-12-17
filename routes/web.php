@@ -27,11 +27,11 @@ Route::get('/clear-cache', function() {
 });
 //GET ROUTE
   Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
-    Route::get('/login/business', 'Auth\LoginController@showBusinessLoginForm');
-     Route::get('/login/affiliate', 'Auth\LoginController@showAffiliateLoginForm');
+    Route::get('/login/business', 'Auth\LoginController@showBusinessLoginForm')->name('business_sign');
+     Route::get('/login/affiliate', 'Auth\LoginController@showAffiliateLoginForm')->name('affiliate_sign');
     Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
-    Route::get('/register/business', 'Auth\RegisterController@showBusinessRegisterForm');
-    Route::get('/register/affiliate', 'Auth\RegisterController@showAffiliateRegisterForm');
+    Route::get('/register/business', 'Auth\RegisterController@showBusinessRegisterForm')->name('business_signup');
+    Route::get('/register/affiliate', 'Auth\RegisterController@showAffiliateRegisterForm')->name('affiliate_signup');
 //POST ROUTE
     Route::post('/login/admin', 'Auth\LoginController@adminLogin');
     Route::post('/login/business', 'Auth\LoginController@businessLogin');

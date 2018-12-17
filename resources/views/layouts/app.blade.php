@@ -40,12 +40,13 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link"  href="#" data-toggle="modal" data-target="#create_">{{ __('Login') }}</a>
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link"   href="#"  data-toggle="modal" data-target="#createTopic_">{{ __('Register') }}</a>
                                 @endif
                             </li>
                         @else
@@ -74,6 +75,50 @@
 
         <main class="py-4">
             @yield('content')
+
+              <div class="modal" id="createTopic_" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content cta-wrapper cta-primary">
+                    <div class="modal-header">
+             <h4>Welcome to Our Website Please Are You ??????????????</h4>
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+
+                           </div>
+                    <div class="modal-body">
+                     
+                      
+                         <hr/>
+                    
+      <a class="btn-e btn-gray"   href="{{route('business_signup')}}" >{{ __('Register As Business') }}</a> or  <a class="btn-e btn-gray" href="{{route('affiliate_signup') }}">{{ __('Register As Affiliate') }}</a>
+
+                                            </div>                                            
+                                             
+                                        </div>
+                                </div>
+                            </div>  <!--- end modal -->
+
+
+   <div class="modal" id="create_" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content cta-wrapper cta-primary">
+                    <div class="modal-header">
+             <h4>Welcome to Our Website Please Are You ??????????????</h4>
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+
+                           </div>
+                    <div class="modal-body">
+                     
+                      
+                         <hr/>
+                    
+      <a class="btn-e btn-gray"   href="{{route('business_sign')}}" >{{ __('Login As Business') }}</a> or  <a class="btn-e btn-gray" href="{{route('affiliate_sign') }}">{{ __('Login As Affiliate') }}</a>
+
+                                            </div>                                            
+                                             
+                                        </div>
+                                </div>
+                            </div>  <!--- end modal -->
+
         </main>
     </div>
 </body>

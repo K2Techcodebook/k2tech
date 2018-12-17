@@ -153,6 +153,55 @@
                     </div>
                 </div>
                 <!-- END - Images Gallery -->
+
+
+   <div class="modal" id="createTopic_" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content cta-wrapper cta-primary">
+                    <div class="modal-header">
+             <h4>Welcome to Our Website Please Are You ??????????????</h4>
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+
+                           </div>
+                    <div class="modal-body">
+                     
+                      
+                         <hr/>
+                    
+      <a class="btn-e btn-gray"   href="{{route('business_signup')}}" >{{ __('Register As Business') }}</a> or  <a class="btn-e btn-gray" href="{{route('affiliate_signup') }}">{{ __('Register As Affiliate') }}</a>
+
+                                            </div>                                            
+                                             
+                                        </div>
+                                </div>
+                            </div>  <!--- end modal -->
+
+
+   <div class="modal" id="create_" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content cta-wrapper cta-primary">
+                    <div class="modal-header">
+             <h4>Welcome to Our Website Please Are You ??????????????</h4>
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+
+                           </div>
+                    <div class="modal-body">
+                     
+                      
+                         <hr/>
+                    
+      <a class="btn-e btn-gray"   href="{{route('business_sign')}}" >{{ __('Login As Business') }}</a> or  <a class="btn-e btn-gray" href="{{route('affiliate_sign') }}">{{ __('Login As Affiliate') }}</a>
+
+                                            </div>                                            
+                                             
+                                        </div>
+                                </div>
+                            </div>  <!--- end modal -->
+
+
+
+
+
             </div>
         </div>
         <!-- END - Contain Wrapp -->
