@@ -173,6 +173,7 @@ return redirect()->intended('login/business');
     }
         protected function createAffiliate(Request $request)
     {
+      var_dump($request['email']);
       $this->validator($request->all())->validate();
       $user_id = mt_rand(13, rand(100, 99999990));
      $exist =DB::table('affiliate')->where('user_id',$user_id)->first();
@@ -190,7 +191,7 @@ return redirect()->intended('login/business');
                   'gender' =>0,
             ]);
 
-             return   Affiliate::create([
+          Affiliate::create([
                   'user_id' => $user_id,
                    'name' => $request['name'],
                    'username' => $request['username'],
@@ -198,12 +199,13 @@ return redirect()->intended('login/business');
                     'ip_address' =>  request()->ip(),
                    'password' => Hash::make($request['password']),
                ]);
+             return redirect()->intended('login/affiliate');
 }
 else{
 //  create(array $data);
 return false;
   }
-return redirect()->intended('login/affiliate');
+
     }
 
     public function showAdminRegisterForm()
