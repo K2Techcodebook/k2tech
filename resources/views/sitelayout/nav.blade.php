@@ -37,8 +37,8 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow Your Project</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="login.php">Login</a></li>
-                                        <li><a href="register.php">Register</a></li>
+                                        <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                                        <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -101,7 +101,7 @@
                         <h4>Welcome to Our Website</h4>
                         <p> Do you know that you can follow the progress of your project on our website?
                           Yes all you have to do is Register and login to your dashboard where everything will be displayed. You can verify. Make Changes .Make payment. Request for a new project  and more all within your dashbaord.</p>
-                        <a class="btn-e btn-gray" href="register.php">Register</a> or  <a class="btn-e btn-gray" href="login.php">Login</a>
+                        <a class="btn-e btn-gray"  href="{{ route('register') }}">{{ __('Register') }}</a> or  <a class="btn-e btn-gray" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </div>
                 </div>
             </div>

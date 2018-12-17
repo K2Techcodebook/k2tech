@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\user_profiles;
-
+use App\Models\Admin;
+use App\Models\Affiliate;
+use App\Models\Business;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     /*
@@ -40,6 +42,9 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:admin');
+        $this->middleware('guest:business');
+        $this->middleware('guest:affiliate');
     }
 
     /**
@@ -96,5 +101,122 @@ else{
 return false;
   }
 
+    }
+
+        protected function createAdmin(array $data)
+    {
+      $this->validator($request->all())->validate();
+      $user_id = mt_rand(13, rand(100, 99999990));
+     $exist =DB::table('users')->where('user_id',$user_id)->first();
+      // $user=User::find($user_id);
+      // if(){
+
+      // }
+     if(!$exist){
+       user_profiles::create(array(
+                 'user_id' => $user_id,
+                 'email' => $data['email'],
+                  'phone_number' => 0,
+                  'full_name' =>$data['name'],
+                  'address' => 0,
+                  'gender' =>0,
+            ));
+
+             return   Admin::create([
+                  'user_id' => $user_id,
+                   'name' => $data['name'],
+                   'username' => $data['username'],
+                   'email' => $data['email'],
+                    'ip_address' =>  request()->ip(),
+                   'password' => Hash::make($data['password']),
+               ]);
+}
+else{
+//  create(array $data);
+return false;
+  }
+  return redirect()->intended('login/admin');
+    }
+        protected function createBusiness(array $data)
+    {
+           $this->validator($request->all())->validate();
+      $user_id = mt_rand(13, rand(100, 99999990));
+     $exist =DB::table('users')->where('user_id',$user_id)->first();
+      // $user=User::find($user_id);
+      // if(){
+
+      // }
+     if(!$exist){
+       user_profiles::create(array(
+                 'user_id' => $user_id,
+                 'email' => $data['email'],
+                  'phone_number' => 0,
+                  'full_name' =>$data['name'],
+                  'address' => 0,
+                  'gender' =>0,
+            ));
+
+             return   Business::create([
+                  'user_id' => $user_id,
+                   'name' => $data['name'],
+                   'username' => $data['username'],
+                   'email' => $data['email'],
+                    'ip_address' =>  request()->ip(),
+                   'password' => Hash::make($data['password']),
+               ]);
+}
+else{
+//  create(array $data);
+return false;
+  }
+return redirect()->intended('login/business');
+    }
+        protected function createAffiliate(array $data)
+    {
+      $this->validator($request->all())->validate();
+      $user_id = mt_rand(13, rand(100, 99999990));
+     $exist =DB::table('users')->where('user_id',$user_id)->first();
+      // $user=User::find($user_id);
+      // if(){
+
+      // }
+     if(!$exist){
+       user_profiles::create(array(
+                 'user_id' => $user_id,
+                 'email' => $data['email'],
+                  'phone_number' => 0,
+                  'full_name' =>$data['name'],
+                  'address' => 0,
+                  'gender' =>0,
+            ));
+
+             return   Affiliate::create([
+                  'user_id' => $user_id,
+                   'name' => $data['name'],
+                   'username' => $data['username'],
+                   'email' => $data['email'],
+                    'ip_address' =>  request()->ip(),
+                   'password' => Hash::make($data['password']),
+               ]);
+}
+else{
+//  create(array $data);
+return false;
+  }
+return redirect()->intended('login/affiliate');
+    }
+
+    public function showAdminRegisterForm()
+    {
+        return view('auth.register', ['url' => 'admin']);
+    }
+
+    public function showAffiliateRegisterForm()
+    {
+        return view('auth.register', ['url' => 'affiliate']);
+    }
+     public function showBusinessRegisterForm()
+    {
+        return view('auth.register', ['url' => 'business']);
     }
 }

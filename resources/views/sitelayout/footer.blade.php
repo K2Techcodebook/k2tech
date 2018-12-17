@@ -31,7 +31,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="footer-brand">
-                                <p><a href="#">BlazeTech</a> &copy; 2018 - All rights reserved.</p>
+                                <p><a href="#">{{config('app.name')}}</a> &copy; 2018 - All rights reserved.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
