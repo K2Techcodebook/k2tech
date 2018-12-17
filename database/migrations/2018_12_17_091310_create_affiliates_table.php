@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAffiliateTable extends Migration
+class CreateAffiliatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAffiliateTable extends Migration
      */
     public function up()
     {
-        Schema::create('affiliate', function (Blueprint $table) {
+        Schema::create('affiliates', function (Blueprint $table) {
             $table->increments('id');
            $table->bigInteger('user_id')->unique();
             $table->string('name');

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
     use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
-class Affiliate extends  Authenticatable
+class Affiliates extends  Authenticatable
  {
         use Notifiable;
 

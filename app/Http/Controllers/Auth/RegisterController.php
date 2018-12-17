@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\user_profiles;
 use App\Models\Admin;
-use App\Models\Affiliate;
-use App\Models\Business;
+use App\Models\Affiliates;
+use App\Models\Businesses;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -130,53 +130,19 @@ return false;
                     'ip_address' =>  request()->ip(),
                    'password' => Hash::make($data['password']),
                ]);
+               return redirect()->intended('login/admin');
 }
 else{
 //  create(array $data);
 return false;
   }
-  return redirect()->intended('login/admin');
+
     }
-        protected function createBusiness(array $data)
+        protected function createBusiness(Request $request)
     {
            $this->validator($request->all())->validate();
       $user_id = mt_rand(13, rand(100, 99999990));
-     $exist =DB::table('users')->where('user_id',$user_id)->first();
-      // $user=User::find($user_id);
-      // if(){
-
-      // }
-     if(!$exist){
-       user_profiles::create(array(
-                 'user_id' => $user_id,
-                 'email' => $data['email'],
-                  'phone_number' => 0,
-                  'full_name' =>$data['name'],
-                  'address' => 0,
-                  'gender' =>0,
-            ));
-
-             return   Business::create([
-                  'user_id' => $user_id,
-                   'name' => $data['name'],
-                   'username' => $data['username'],
-                   'email' => $data['email'],
-                    'ip_address' =>  request()->ip(),
-                   'password' => Hash::make($data['password']),
-               ]);
-}
-else{
-//  create(array $data);
-return false;
-  }
-return redirect()->intended('login/business');
-    }
-        protected function createAffiliate(Request $request)
-    {
-      var_dump($request['email']);
-      $this->validator($request->all())->validate();
-      $user_id = mt_rand(13, rand(100, 99999990));
-     $exist =DB::table('affiliate')->where('user_id',$user_id)->first();
+     $exist =DB::table('businesses')->where('user_id',$user_id)->first();
       // $user=User::find($user_id);
       // if(){
 
@@ -191,7 +157,43 @@ return redirect()->intended('login/business');
                   'gender' =>0,
             ]);
 
-          Affiliate::create([
+              Businesses::create([
+                  'user_id' => $user_id,
+                   'name' => $request['name'],
+                   'username' => $request['username'],
+                   'email' => $request['email'],
+                    'ip_address' =>  request()->ip(),
+                   'password' => Hash::make($request['password']),
+               ]);
+              return redirect()->intended('login/business');
+}
+else{
+//  create(array $data);
+return false;
+  }
+
+    }
+        protected function createAffiliate(Request $request)
+    {
+      var_dump($request['email']);
+      $this->validator($request->all())->validate();
+      $user_id = mt_rand(13, rand(100, 99999990));
+     $exist =DB::table('affiliates')->where('user_id',$user_id)->first();
+      // $user=User::find($user_id);
+      // if(){
+
+      // }
+     if(!$exist){
+       user_profiles::create([
+                 'user_id' => $user_id,
+                 'email' => $request['email'],
+                  'phone_number' => 0,
+                  'full_name' =>$request['name'],
+                  'address' => 0,
+                  'gender' =>0,
+            ]);
+
+          Affiliates::create([
                   'user_id' => $user_id,
                    'name' => $request['name'],
                    'username' => $request['username'],
