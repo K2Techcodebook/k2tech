@@ -32,5 +32,18 @@ mix.scripts([
     'public/js/revolution/revolution-addons/slicey/js/revolution.addon.slicey.min8a54.js?ver=1.0.0',
      'public/js/revolution/js/extensions/revolution.extension.slideanims.min.js',
       'public/js/revolution/js/extensions/revolution.extension.layeranimation.min.js',
-       'public/js/revolution/js/extensions/revolution.extension.navigation.min.js'
+       'public/js/revolution/js/extensions/revolution.extension.navigation.min.js',
+       'public/js/parallax/jquery.parallax-1.1.3.js',
+       'public/js/parallax/setting.js',
+       'public/js/owlcarousel/js/owl.carousel.min.js',
+       'public/js/owlcarousel/js/setting.js',
+       'public/js/prettyPhoto/js/jquery.prettyPhoto.js',
+       'public/js/prettyPhoto/js/setting.js',
+       'public/js/masonry/js/masonry.min.js',
+       'public/js/masonry/js/masonry.filter.js',
+       'public/js/masonry/js/setting.js',
+       'public/js/custom.js',
+       'public/js/nicescroll/jquery.nicescroll.min.js',
+       'public/js/nicescroll/settings.js',
+       'public/js/style-switcher/js/style-switcher.js'
 ], 'public/home/js/all.js');
