@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/clear-cache', function() {
+    $exitCode = Illuminate\Support\Facades\Artisan::call('cache:clear');
+      $exitCode = Illuminate\Support\Facades\Artisan::call('route:clear');
+        $exitCode = Illuminate\Support\Facades\Artisan::call('config:clear');
+    return $exitCode;
+    // return what you want
+});

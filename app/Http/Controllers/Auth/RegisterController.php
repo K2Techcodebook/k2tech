@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\DB;
-use App\user_profiles;
+use App\Models\user_profiles;
+
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -72,23 +73,23 @@ class RegisterController extends Controller
 
       // }
      if(!$exist){
-        return User::create([
-           'user_id' => $user_id,
-            'name' => $data['name'],
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-        return user_profiles::create(array(
+       user_profiles::create(array(
                  'user_id' => $user_id,
                  'email' => $data['email'],
-                  'phone_number' => $data['phone'],
-                  'full_name' => 0,
+                  'phone_number' => 0,
+                  'full_name' =>$data['name'],
                   'address' => 0,
                   'gender' =>0,
-                  'occupation' => 0,
             ));
 
+             return   User::create([
+                  'user_id' => $user_id,
+                   'name' => $data['name'],
+                   'username' => $data['username'],
+                   'email' => $data['email'],
+                    'ip_address' =>  request()->ip(),
+                   'password' => Hash::make($data['password']),
+               ]);
 }
 else{
 //  create(array $data);
