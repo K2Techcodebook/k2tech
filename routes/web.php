@@ -41,7 +41,7 @@ Route::get('/clear-cache', function() {
     Route::post('/register/business', 'Auth\RegisterController@createBusiness');
 //DASBOARD AFTER LOGIN
 
-    Route::view('/home', 'home')->middleware('auth');
+  //  Route::view('/home', 'home')->middleware('auth');
     // Route::view('/admin', 'admin');
 
 
