@@ -1,4 +1,4 @@
-\ @extends('layouts.auth')
+ @extends('layouts.auth')
 
     @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
                     <div class="card-header">Dashboard</div>
 
                     <div class="card-body">
-                        Hi boss!
+                        Hi boss! {{Auth::guard('affiliate')->user()->name}}
                     </div>
                 </div>
             </div>

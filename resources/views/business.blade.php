@@ -8,7 +8,7 @@
                     <div class="card-header">Dashboard</div>
 
                     <div class="card-body">
-                        Hi boss!
+                        Hi boss! {{Auth::guard('business')->user()->name}}
                     </div>
                 </div>
             </div>

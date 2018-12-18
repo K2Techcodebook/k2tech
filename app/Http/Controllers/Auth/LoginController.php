@@ -57,7 +57,7 @@ class LoginController extends Controller
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/admin');
+            return redirect()->intended(route('admin.dashboard'));
         }
         return back()->withInput($request->only('email', 'remember'));
     }
@@ -76,7 +76,7 @@ class LoginController extends Controller
 
         if (Auth::guard('affiliate')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-          //  return redirect()->intended('/affiliate');
+           return redirect()->intended(route('affiliate.dashboard'));
         }
         return back()->withInput($request->only('email', 'remember'));
     }
@@ -95,9 +95,23 @@ class LoginController extends Controller
 
         if (Auth::guard('business')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/business');
+            return redirect()->intended(route('business.dashboard'));
         }
         return back()->withInput($request->only('email', 'remember'));
+    }
+  // public function logout()
+  //   {
+  //       Auth::guard('admin')->logout();
+
+  //       return redirect('/');
+  //   }
+        public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/');
     }
 
 }

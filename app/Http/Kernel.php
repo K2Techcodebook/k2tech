@@ -51,6 +51,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'biz'=>\App\Http\Middleware\BusinessMiddleware::class,
+        'affi'=>\App\Http\Middleware\AffiliateMiddleware::class,
+        'admin' =>\App\Http\Middleware\AdminMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -70,6 +73,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewarePriority = [
+           \App\Http\Middleware\BusinessMiddleware::class,
+        \App\Http\Middleware\AffiliateMiddleware::class,
+        \App\Http\Middleware\AdminMiddleware::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \App\Http\Middleware\Authenticate::class,

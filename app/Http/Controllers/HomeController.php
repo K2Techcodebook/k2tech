@@ -14,6 +14,9 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+         $this->middleware('guest:admin');
+        $this->middleware('guest:business');
+        $this->middleware('guest:affiliate');
     }
 
     /**
@@ -24,9 +27,19 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+             
     }
-    public function affiliate()
-    {
-        return view('affiliate');
-    }
+    // public function affiliate()
+    // {
+    //     return view('business');
+    // }
+    public function admin(Request $req){
+return view('admin')->withMessage('Admin');
+}
+public function business(Request $req){
+return view('business')->withMessage('Business Member');
+}
+public function affiliate(Request $req){
+return view('affiliates')->withMessage('Affiliate Member');
+}
 }

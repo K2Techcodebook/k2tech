@@ -103,7 +103,7 @@ return false;
 
     }
 
-        protected function createAdmin(array $data)
+        protected function createAdmin(Request $request)
     {
       $this->validator($request->all())->validate();
       $user_id = mt_rand(13, rand(100, 99999990));
@@ -113,22 +113,21 @@ return false;
 
       // }
      if(!$exist){
-       user_profiles::create(array(
+       user_profiles::create([
                  'user_id' => $user_id,
-                 'email' => $data['email'],
+                 'email' => $request['email'],
                   'phone_number' => 0,
-                  'full_name' =>$data['name'],
+                  'full_name' =>$request['name'],
                   'address' => 0,
                   'gender' =>0,
-            ));
-
-             return   Admin::create([
+            ]);
+  Admin::create([
                   'user_id' => $user_id,
-                   'name' => $data['name'],
-                   'username' => $data['username'],
-                   'email' => $data['email'],
+                   'name' => $request['name'],
+                   'username' => $request['username'],
+                   'email' => $request['email'],
                     'ip_address' =>  request()->ip(),
-                   'password' => Hash::make($data['password']),
+                   'password' => Hash::make($request['password']),
                ]);
                return redirect()->intended('login/admin');
 }
