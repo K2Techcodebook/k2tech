@@ -83,15 +83,15 @@ return [
         ],
            'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Admin::class,
+            'model' => App\Models\Admin::class,
         ],
         'affiliates' => [
             'driver' => 'eloquent',
-            'model' => App\Affiliate::class,
+            'model' => App\Models\Affiliates::class,
         ],
           'businesss' => [
             'driver' => 'eloquent',
-            'model' => App\Business::class,
+            'model' => App\Models\Businesses::class,
         ],
 
         // 'users' => [

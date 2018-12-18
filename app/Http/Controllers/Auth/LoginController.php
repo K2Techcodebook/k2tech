@@ -76,7 +76,7 @@ class LoginController extends Controller
 
         if (Auth::guard('affiliate')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/affiliate');
+          //  return redirect()->intended('/affiliate');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
