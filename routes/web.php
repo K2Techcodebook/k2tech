@@ -37,8 +37,8 @@ Route::get('/clear-cache', function() {
     Route::post('/login/business', 'Auth\LoginController@businessLogin');
     Route::post('/login/affiliate', 'Auth\LoginController@affiliateLogin');
     Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
-    Route::post('/register/affiliate', 'Auth\RegisterController@createAffiliate');
-    Route::post('/register/business', 'Auth\RegisterController@createBusiness');
+    Route::post('/register/affiliate', 'Auth\RegisterController@createAffiliate')->name('reg_affiliate');
+    Route::post('/register/business', 'Auth\RegisterController@createBusiness')->name('reg_business');
 //DASBOARD AFTER LOGIN
 
   //  Route::view('/home', 'home')->middleware('auth');

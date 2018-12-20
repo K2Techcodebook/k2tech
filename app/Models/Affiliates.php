@@ -14,7 +14,7 @@ class Affiliates extends  Authenticatable
         protected $guard = 'affiliate';
 
         protected $fillable = [
-            'user_id','name','username', 'email', 'password', 'ip_address','isadmin',
+            'user_id','name','username', 'emaila', 'password', 'ip_address','isadmin',
         ];
 
         protected $hidden = [

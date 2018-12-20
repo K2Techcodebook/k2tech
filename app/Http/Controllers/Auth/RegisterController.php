@@ -53,15 +53,22 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-              'username' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
-        ]);
-    }
+    // protected function validator(array  $data)
+    // {
+    //     return Validator::make($data, [
+    //         'name' => ['required', 'string', 'max:255'],
+    //           'username' => ['required', 'string', 'max:255'],
+    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+    //         'password' => ['required', 'string', 'min:6', 'confirmed'],
+    //     ]);
+
+    //     // $this->Validator($request, [
+    //     //     'namea' => ['required', 'string', 'max:255'],
+    //     //       'usernamea' => ['required', 'string', 'max:255'],
+    //     //     'emaila' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+    //     //     'passworda' => ['required', 'string', 'min:6', 'confirmed'],
+    //     // ]);
+    // }
 
     /**
      * Create a new user instance after a valid registration.
@@ -69,43 +76,57 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-      $user_id = mt_rand(13, rand(100, 99999990));
-     $exist =DB::table('users')->where('user_id',$user_id)->first();
-      // $user=User::find($user_id);
-      // if(){
+//     protected function create(array $data)
+//     {
 
-      // }
-     if(!$exist){
-       user_profiles::create(array(
-                 'user_id' => $user_id,
-                 'email' => $data['email'],
-                  'phone_number' => 0,
-                  'full_name' =>$data['name'],
-                  'address' => 0,
-                  'gender' =>0,
-            ));
 
-             return   User::create([
-                  'user_id' => $user_id,
-                   'name' => $data['name'],
-                   'username' => $data['username'],
-                   'email' => $data['email'],
-                    'ip_address' =>  request()->ip(),
-                   'password' => Hash::make($data['password']),
-               ]);
-}
-else{
-//  create(array $data);
-return false;
-  }
+//        $this->Validator::make($data, [
+//             'name' => ['required', 'string', 'max:255'],
+//               'username' => ['required', 'string', 'max:255'],
+//             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+//             'password' => ['required', 'string', 'min:6', 'confirmed'],
+//         ]);
+//       $user_id = mt_rand(13, rand(100, 99999990));
+//      $exist =DB::table('users')->where('user_id',$user_id)->first();
+//       // $user=User::find($user_id);
+//       // if(){
 
-    }
+//       // }
+//      if(!$exist){
+//        user_profiles::create(array(
+//                  'user_id' => $user_id,
+//                  'email' => $data['email'],
+//                   'phone_number' => 0,
+//                   'full_name' =>$data['name'],
+//                   'address' => 0,
+//                   'gender' =>0,
+//             ));
+
+//              return   User::create([
+//                   'user_id' => $user_id,
+//                    'name' => $data['name'],
+//                    'username' => $data['username'],
+//                    'email' => $data['email'],
+//                     'ip_address' =>  request()->ip(),
+//                    'password' => Hash::make($data['password']),
+//                ]);
+// }
+// else{
+// //  create(array $data);
+// return false;
+//   }
+
+//     }
 
         protected function createAdmin(Request $request)
     {
-      $this->validator($request->all())->validate();
+    $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+              'username' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+
+        ]);
       $user_id = mt_rand(13, rand(100, 99999990));
      $exist =DB::table('users')->where('user_id',$user_id)->first();
       // $user=User::find($user_id);
@@ -139,7 +160,14 @@ return false;
     }
         protected function createBusiness(Request $request)
     {
-           $this->validator($request->all())->validate();
+
+           $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+              'username' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:businesses'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+
+        ]);
       $user_id = mt_rand(13, rand(100, 99999990));
      $exist =DB::table('businesses')->where('user_id',$user_id)->first();
       // $user=User::find($user_id);
@@ -174,8 +202,15 @@ return false;
     }
         protected function createAffiliate(Request $request)
     {
-      var_dump($request['email']);
-      $this->validator($request->all())->validate();
+           $this->validate($request, [
+            'namea' => ['required', 'string', 'max:255'],
+              'usernamea' => ['required', 'string', 'max:255'],
+            'emaila' => ['required', 'string', 'email', 'max:255', 'unique:affiliates'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+
+        ]);
+     // var_dump($request['email']);
+     // $this->validator($request->all())->validate();
       $user_id = mt_rand(13, rand(100, 99999990));
      $exist =DB::table('affiliates')->where('user_id',$user_id)->first();
       // $user=User::find($user_id);
@@ -185,18 +220,18 @@ return false;
      if(!$exist){
        user_profiles::create([
                  'user_id' => $user_id,
-                 'email' => $request['email'],
+                 'email' => $request['emaila'],
                   'phone_number' => 0,
-                  'full_name' =>$request['name'],
+                  'full_name' =>$request['namea'],
                   'address' => 0,
                   'gender' =>0,
             ]);
 
           Affiliates::create([
                   'user_id' => $user_id,
-                   'name' => $request['name'],
-                   'username' => $request['username'],
-                   'email' => $request['email'],
+                   'name' => $request['namea'],
+                   'username' => $request['usernamea'],
+                   'emaila' => $request['emaila'],
                     'ip_address' =>  request()->ip(),
                    'password' => Hash::make($request['password']),
                ]);

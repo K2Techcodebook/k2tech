@@ -18,7 +18,7 @@ class CreateAffiliatesTable extends Migration
            $table->bigInteger('user_id')->unique();
             $table->string('name');
             $table->string('username')->unique();
-            $table->string('email')->unique();
+            $table->string('emaila')->unique();
             $table->string('password');
              $table->string('is_affi')->default('affiliate');
             $table->string('ip_address');
