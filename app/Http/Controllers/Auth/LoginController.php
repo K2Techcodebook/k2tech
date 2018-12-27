@@ -74,7 +74,7 @@ class LoginController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        if (Auth::guard('affiliate')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+        if (Auth::guard('affiliate')->attempt(['emaila' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
            return redirect()->intended(route('affiliate.dashboard'));
         }
@@ -88,6 +88,7 @@ class LoginController extends Controller
 
     public function businessLogin(Request $request)
     {
+        var_dump($request->get('remember'));
         $this->validate($request, [
             'email'   => 'required|email',
             'password' => 'required|min:6'

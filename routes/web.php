@@ -34,8 +34,8 @@ Route::get('/clear-cache', function() {
     Route::get('/register/affiliate', 'Auth\RegisterController@showAffiliateRegisterForm')->name('affiliate_signup');
 //POST ROUTE
     Route::post('/login/admin', 'Auth\LoginController@adminLogin');
-    Route::post('/login/business', 'Auth\LoginController@businessLogin');
-    Route::post('/login/affiliate', 'Auth\LoginController@affiliateLogin');
+    Route::post('/login/business', 'Auth\LoginController@businessLogin')->name('log_business');
+    Route::post('/login/affiliate', 'Auth\LoginController@affiliateLogin')->name('log_affiliate');
     Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
     Route::post('/register/affiliate', 'Auth\RegisterController@createAffiliate')->name('reg_affiliate');
     Route::post('/register/business', 'Auth\RegisterController@createBusiness')->name('reg_business');

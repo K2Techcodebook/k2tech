@@ -1,11 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome</h3>
+                        <p>You are 30 seconds away from earning your own money!</p>
+                           <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </div><br><br>
+                    <div class="col-md-9 register-right">
+                <div class="g">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -40,8 +45,8 @@
                         </div>
                     </form>
                 </div>
+             </div>
+                </div>
+
             </div>
-        </div>
-    </div>
-</div>
 @endsection
