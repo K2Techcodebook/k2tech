@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 20, 2018 at 07:36 PM
+-- Generation Time: Dec 27, 2018 at 09:57 AM
 -- Server version: 5.7.24-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -92,7 +92,7 @@ CREATE TABLE `businesses` (
 --
 
 INSERT INTO `businesses` (`id`, `user_id`, `name`, `username`, `email`, `password`, `is_busiz`, `ip_address`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 5215326, 'Peace Johnson Akpan', 'emi', 'peacejohns995@gmail.com', '$2y$10$QQpcHT4zo0vPzs8YBXmX6.dcs0.Hxn20qRJokDt6InNaaG.Lqro82', 'business', '127.0.0.1', NULL, '2018-12-20 17:34:44', '2018-12-20 17:34:44');
+(1, 5215326, 'Peace Johnson Akpan', 'emi', 'peacejohns995@gmail.com', '$2y$10$nDxHUHeTVGkhnImiI4f4/OWgwkG9Fyy.QI12VBn5WuAVFxyrGrYAC', 'business', '127.0.0.1', NULL, '2018-12-20 17:34:44', '2018-12-20 17:34:44');
 
 -- --------------------------------------------------------
 
