@@ -59,4 +59,5 @@ Route::match(['get', 'post'], '/affiliates', 'AffiliateController@index')->name(
 {
    //  Route::view('/business', 'business')->name('business.dashboard');
 Route::match(['get', 'post'], '/business', 'BusinessController@index')->name('business.dashboard');
+Route::get('/profile', 'BusinessController@profile')->name('profile');
 });
