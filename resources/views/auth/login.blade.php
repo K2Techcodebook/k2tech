@@ -19,10 +19,19 @@
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
+                                  <div class="col-lg-10 col-lg-offset-2">
+                        @if (session('status'))
+
+                                      <div class="alert alert-danger">
+                                          {{ session('status') }}
+                                      </div>
+                                  @endif
+                                 
+                        </div>
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Login as a Affiliate</h3>
                                 <div class="row register-form">
-                            
+                          
                     <form method="POST" action="{{ route('log_affiliate') }}" aria-label="{{ __('Login') }}">
                   
                         @csrf
@@ -31,11 +40,11 @@
                             <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"  autofocus>
+                                <input id="aemail" type="email" class="form-control{{ $errors->has('aemail') ? ' is-invalid' : '' }}" name="aemail" value="{{ old('aemail') }}"  autofocus>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('aemail'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('aemail') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -45,11 +54,11 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" >
+                                <input id="apassword" type="password" class="form-control{{ $errors->has('apassword') ? ' is-invalid' : '' }}" name="apassword" >
 
-                                @if ($errors->has('password'))
+                                @if ($errors->has('apassword'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong>{{ $errors->first('apassword') }}</strong>
                                     </span>
                                 @endif
                             </div>

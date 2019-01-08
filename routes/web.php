@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-// Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/clear-cache', function() {
-    Illuminate\Support\Facades\Artisan::call('cache:clear');
-    Illuminate\Support\Facades\Artisan::call('route:clear');
+   $exitCode =  Illuminate\Support\Facades\Artisan::call('cache:clear');
+    $exitCode = Illuminate\Support\Facades\Artisan::call('route:clear');
         $exitCode = Illuminate\Support\Facades\Artisan::call('config:clear');
     return $exitCode;
     // return what you want
@@ -52,12 +52,15 @@ Route::match(['get', 'post'], '/superadmin', 'AdminController@index')->name('adm
 });
     Route::group(['middleware' => 'affi'], function()
 {
- //Route::view('/affiliates', 'Maffiliates')->name('affiliate.dashboard');
+
 Route::match(['get', 'post'], '/affiliates', 'AffiliateController@index')->name('affiliate.dashboard');
+Route::get('/Affilate', 'AffiliateController@Affilatebox')->name('Affilate-box');
+Route::get('/affiliate-profile', 'AffiliateController@profile')->name('-profile');
 });
     Route::group(['middleware' => 'biz'], function()
 {
    //  Route::view('/business', 'business')->name('business.dashboard');
 Route::match(['get', 'post'], '/business', 'BusinessController@index')->name('business.dashboard');
 Route::get('/profile', 'BusinessController@profile')->name('profile');
+Route::get('/new_project', 'BusinessController@create_project')->name('new_project');
 });

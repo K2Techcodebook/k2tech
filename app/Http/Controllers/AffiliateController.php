@@ -25,4 +25,12 @@ class AffiliateController extends Controller
     {
         return view('Maffiliates');
     }
+    public function Affilatebox()
+    {
+
+    }
+    public function profile()
+    {
+        
+    }
 }

@@ -25,4 +25,12 @@ class BusinessController extends Controller
     {
         return view('business');
     }
+       public function profile()
+    {
+        
+    }
+    public function create_project()
+    {
+        
+    }
 }

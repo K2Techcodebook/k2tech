@@ -25,10 +25,10 @@
 
                         <li class="light-blue dropdown-modal">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                <img class="nav-user-photo" src="bussiness/assets/images/avatars/user.jpg" alt=" {{Auth::guard('business')->user()->name}} Photo" />
+                                <img class="nav-user-photo" src="bussiness/assets/images/avatars/user.jpg" alt=" {{Auth::guard('affiliate')->user()->name}} Photo" />
                                 <span class="user-info">
                                     <small>Welcome,</small>
-                                {{Auth::guard('business')->user()->name}}
+                                {{Auth::guard('affiliate')->user()->name}}
                                 </span>
 
                                 <i class="ace-icon fa fa-caret-down"></i>
@@ -109,7 +109,7 @@
                     </li>
 
                     <li class="">
-                        <a href="{{route('profile')}}">
+                        <a href="{{route('-profile')}}">
                             <i class="menu-icon fa fa-user"></i>
 
                             <span class="menu-text">
@@ -124,58 +124,7 @@
                         <b class="arrow"></b>
                     </li>
 
-        <li class="">
-                                <a href="#" class="dropdown-toggle">
-                                    <i class="menu-icon fa fa-caret-right"></i>
 
-                                   Project
-                                    <b class="arrow fa fa-angle-down"></b>
-                                </a>
-
-                                <b class="arrow"></b>
-
-                                <ul class="submenu">
-                                    <li class="">
-                                        <a href="{{route('new_project')}}">
-                                            <i class="menu-icon fa fa-leaf green"></i>
-                                          Start New Project
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-<!-- 
-                                    <li class="">
-                                        <a href="#" class="dropdown-toggle">
-                                            <i class="menu-icon fa fa-pencil orange"></i>
-
-                                            4th level
-                                            <b class="arrow fa fa-angle-down"></b>
-                                        </a>
-
-                                        <b class="arrow"></b>
-
-                                        <ul class="submenu">
-                                            <li class="">
-                                                <a href="#">
-                                                    <i class="menu-icon fa fa-plus purple"></i>
-                                                    Add Product
-                                                </a>
-
-                                                <b class="arrow"></b>
-                                            </li>
-
-                                            <li class="">
-                                                <a href="#">
-                                                    <i class="menu-icon fa fa-eye pink"></i>
-                                                    View Products
-                                                </a>
-
-                                                <b class="arrow"></b>
-                                            </li>
-                                        </ul>
-                                    </li> -->
-                                </ul>
-                            </li>
 
                  
                 </ul><!-- /.nav-list -->

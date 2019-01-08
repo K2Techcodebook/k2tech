@@ -59,7 +59,8 @@ class LoginController extends Controller
 
             return redirect()->intended(route('admin.dashboard'));
         }
-        return back()->withInput($request->only('email', 'remember'));
+
+        return back()->withInput($request->only('email', 'remember'))->withErrors($validator);
     }
 
     public function showAffiliateLoginForm()
@@ -70,15 +71,16 @@ class LoginController extends Controller
     public function affiliateLogin(Request $request)
     {
         $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required|min:6'
+            'aemail'   => 'required|email',
+            'apassword' => 'required|min:6'
         ]);
 
-        if (Auth::guard('affiliate')->attempt(['emaila' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+        if (Auth::guard('affiliate')->attempt(['emaila' => $request->aemail, 'password' => $request->apassword], $request->get('remember'))) {
 
            return redirect()->intended(route('affiliate.dashboard'));
         }
-        return back()->withInput($request->only('email', 'remember'));
+         $message ='Login Details Incorrect Plsease Check Again!';
+        return back()->withInput($request->only('aemail', 'remember'))->with('status', $message);
     }
 
        public function showBusinessLoginForm()
@@ -98,7 +100,8 @@ class LoginController extends Controller
 
             return redirect()->intended(route('business.dashboard'));
         }
-        return back()->withInput($request->only('email', 'remember'));
+          $message ='Login Details Incorrect Plsease Check Again!';
+        return back()->withInput($request->only('email', 'remember'))->with('status', $message);
     }
   // public function logout()
   //   {
