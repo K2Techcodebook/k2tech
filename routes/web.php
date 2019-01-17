@@ -32,6 +32,7 @@ Route::get('/clear-cache', function() {
     Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
     Route::get('/register/business', 'Auth\RegisterController@showBusinessRegisterForm')->name('business_signup');
     Route::get('/register/affiliate', 'Auth\RegisterController@showAffiliateRegisterForm')->name('affiliate_signup');
+    Route::get('/register/{id}', 'Auth\RegisterController@showBusinessRegisterFormshow')->name('business_signup_');
 //POST ROUTE
     Route::post('/login/admin', 'Auth\LoginController@adminLogin');
     Route::post('/login/business', 'Auth\LoginController@businessLogin')->name('log_business');
@@ -44,7 +45,14 @@ Route::get('/clear-cache', function() {
   //  Route::view('/home', 'home')->middleware('auth');
     // Route::view('/admin', 'admin');
 
+//General Pages 
+Route::group([ 'middleware' => [ 'auth'] ], function(){
+//GET ROUTE
 
+
+  //POST ROUTE  
+
+});
 
     Route::group(['middleware' => 'admin'], function()
 {

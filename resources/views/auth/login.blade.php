@@ -12,10 +12,10 @@
                     <div class="col-md-9 register-right">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Affiliate</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Hirer</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hirer</a>
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Affiliate</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -29,67 +29,7 @@
                                  
                         </div>
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Login as a Affiliate</h3>
-                                <div class="row register-form">
-                          
-                    <form method="POST" action="{{ route('log_affiliate') }}" aria-label="{{ __('Login') }}">
-                  
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="aemail" type="email" class="form-control{{ $errors->has('aemail') ? ' is-invalid' : '' }}" name="aemail" value="{{ old('aemail') }}"  autofocus>
-
-                                @if ($errors->has('aemail'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('aemail') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="apassword" type="password" class="form-control{{ $errors->has('apassword') ? ' is-invalid' : '' }}" name="apassword" >
-
-                                @if ($errors->has('apassword'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('apassword') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Login as a Hirer</h3>
+                         <h3  class="register-heading">Login as a Hirer</h3>
                                 <div class="row register-form">
                                               
                     <form method="POST" action="{{ route('log_business') }}" aria-label="{{ __('Login') }}">
@@ -147,6 +87,68 @@
                         </div>
                     </form>
                                 </div>
+                            </div>
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                      <h3 class="register-heading">Login as a Affiliate</h3>
+                                <div class="row register-form">
+                          
+                    <form method="POST" action="{{ route('log_affiliate') }}" aria-label="{{ __('Login') }}">
+                  
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="aemail" type="email" class="form-control{{ $errors->has('aemail') ? ' is-invalid' : '' }}" name="aemail" value="{{ old('aemail') }}"  autofocus>
+
+                                @if ($errors->has('aemail'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('aemail') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="apassword" type="password" class="form-control{{ $errors->has('apassword') ? ' is-invalid' : '' }}" name="apassword" >
+
+                                @if ($errors->has('apassword'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('apassword') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                                </div>
+
+                                 
                             </div>
                         </div>
                     </div>

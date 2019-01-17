@@ -428,6 +428,7 @@ class ComposerStaticInit2eba8c7e70b9d1e995bb7985f99198ba
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Affiliates' => __DIR__ . '/../..' . '/app/Models/Affiliates.php',
         'App\\Models\\Businesses' => __DIR__ . '/../..' . '/app/Models/Businesses.php',
+        'App\\Models\\Refs' => __DIR__ . '/../..' . '/app/Models/Refs.php',
         'App\\Models\\user_profiles' => __DIR__ . '/../..' . '/app/Models/user_profiles.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

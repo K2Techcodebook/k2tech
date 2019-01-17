@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\Affiliates;
 use App\Models\Businesses;
 use App\User;
+use App\Models\Refs;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -192,6 +193,11 @@ return false;
                     'ip_address' =>  request()->ip(),
                    'password' => Hash::make($request['password']),
                ]);
+
+              Refs::create([
+                   'user_id' => $user_id,
+                    'ref_id' => $request['ref_id'],
+              ]);
               return redirect()->intended('login/business');
 }
 else{
@@ -256,5 +262,11 @@ return false;
      public function showBusinessRegisterForm()
     {
         return view('auth.register', ['url' => 'business']);
+    }
+      public function showBusinessRegisterFormshow($id)
+    {
+      $post=$id;
+
+        return view('auth.register', ['url' => 'business'],compact('post'));
     }
 }

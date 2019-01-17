@@ -19,6 +19,11 @@
         <link rel="stylesheet" href="{{URL::asset('bussiness/assets/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
 
     <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="{{URL::asset('bussiness/assets/css/jquery-ui.custom.min.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('bussiness/assets/css/jquery.gritter.min.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('bussiness/assets/css/select2.min.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('bussiness/assets/css/bootstrap-datepicker3.min.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('bussiness/assets/css/bootstrap-editable.min.css')}}" />
 
     <!-- text fonts -->
     <link rel="stylesheet" href="{{URL::asset('bussiness/assets/css/fonts.googleapis.com.css')}}" />

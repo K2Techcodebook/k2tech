@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Input;
 
 class AffiliateController extends Controller
 {
@@ -31,6 +35,9 @@ class AffiliateController extends Controller
     }
     public function profile()
     {
-        
+         $r= Auth::user();
+        // dd($r);
+  // $post = comments::find(1);
+    return view('pages.profile',compact('r',$r)); 
     }
 }
