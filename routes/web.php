@@ -45,12 +45,12 @@ Route::get('/clear-cache', function() {
   //  Route::view('/home', 'home')->middleware('auth');
     // Route::view('/admin', 'admin');
 
-//General Pages 
+//General Pages
 Route::group([ 'middleware' => [ 'auth'] ], function(){
 //GET ROUTE
 
 
-  //POST ROUTE  
+  //POST ROUTE
 
 });
 
@@ -60,10 +60,12 @@ Route::match(['get', 'post'], '/superadmin', 'AdminController@index')->name('adm
 });
     Route::group(['middleware' => 'affi'], function()
 {
-
+//GET ROUTE
 Route::match(['get', 'post'], '/affiliates', 'AffiliateController@index')->name('affiliate.dashboard');
 Route::get('/Affilate', 'AffiliateController@Affilatebox')->name('Affilate-box');
 Route::get('/affiliate-profile', 'AffiliateController@profile')->name('-profile');
+  //POST ROUTE
+ Route::post('/Update_profile', 'AffiliateController@Update_profile')->name('Update_profile');
 });
     Route::group(['middleware' => 'biz'], function()
 {

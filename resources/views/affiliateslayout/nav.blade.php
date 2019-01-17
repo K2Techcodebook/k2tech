@@ -43,7 +43,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{route('profile')}}">
+                                    <a href="{{route('-profile')}}">
                                         <i class="ace-icon fa fa-user"></i>
                                         Profile
                                     </a>
@@ -78,7 +78,7 @@
                     try{ace.settings.loadState('sidebar')}catch(e){}
                 </script>
 
-             
+
 
                 <ul class="nav nav-list">
                     <li class="active">
@@ -91,7 +91,7 @@
                     </li>
 
 
-                           
+
                     <li class="">
                         <a href="{{route('Affilate-box')}}">
                             <i class="menu-icon fa fa-tachometer"></i>
@@ -126,7 +126,7 @@
 
 
 
-                 
+
                 </ul><!-- /.nav-list -->
 
                 <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
@@ -155,6 +155,6 @@
                         </div> -->
                         <!-- /.nav-search -->
                     </div>
-                    
+
                     <div class="page-content">
                       <!--   <div class="ace-settings-container" id="ace-settings-container"> -->

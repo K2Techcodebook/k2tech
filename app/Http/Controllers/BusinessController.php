@@ -27,10 +27,10 @@ class BusinessController extends Controller
     }
        public function profile()
     {
-        
+
     }
     public function create_project()
     {
-        
+
     }
 }
